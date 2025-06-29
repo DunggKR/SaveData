@@ -30,7 +30,7 @@ gg.editAll(input[4], gg.TYPE_DWORD)
 gg.clearResults()
 end
 if input[5] then
-L = gg.makeRequest('https://dunggkr.github.io/DC-Script/DC.lua').content
+L = gg.makeRequest('https://raw.githubusercontent.com/DunggKR/SaveData/main/Hamzah/Loader.lua').content
 if not L then gg.alert('SERVER: Allow Internet Connection...') else
 pcall(load(L)) end
   end
