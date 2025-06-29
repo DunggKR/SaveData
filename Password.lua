@@ -1,6 +1,6 @@
 -- Passwords mapped to {alert message, request URL}
 local PasswordMap = {
-  ["hamzah"]   = {"Hello bitch, enjoy your 1 day trial period.", "https://example.com/request1"},
+  ["hamzah"]   = {"Hello bitch, enjoy your 1 day trial period.", "https://raw.githubusercontent.com/DunggKR/SaveData/main/Hamzah/Expiry_Date_Check.lua"},
   ["NIKA"] = {"Hello NIKA! Time to access your zone.", "https://example.com/request2"},
   ["TGN"]  = {"TGN detected. Launching your command...", "https://example.com/request3"},
   -- Add more like this:
