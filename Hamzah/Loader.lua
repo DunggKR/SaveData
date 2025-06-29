@@ -15,19 +15,19 @@ if menu == 5 then DragonCityHack5() end
 if menu ==nil then NoSelect() end
 end
 function DragonCityHack1()
-L = gg.makeRequest('https://dunggkr.github.io/DC-Script/Arena.lua').content
+L = gg.makeRequest('https://raw.githubusercontent.com/DunggKR/SaveData/main/Hamzah/Arena.lua').content
 if not L then gg.alert('SERVER: Allow Internet Connection...') else
 pcall(load(L)) end
 end
 
 function DragonCityHack2()
-L = gg.makeRequest('https://dunggkr.github.io/DC-Script/Recall.lua').content
+L = gg.makeRequest('https://raw.githubusercontent.com/DunggKR/SaveData/main/Hamzah/Recall.lua').content
 if not L then gg.alert('SERVER: Allow Internet Connection...') else
 pcall(load(L)) end
 end
 
 function DragonCityHack3()
-L = gg.makeRequest('https://dunggkr.github.io/DC-Script/Rescue.lua').content
+L = gg.makeRequest('https://raw.githubusercontent.com/DunggKR/SaveData/main/Hamzah/Rescue.lua').content
 if not L then gg.alert('SERVER: Allow Internet Connection...') else
 pcall(load(L)) end
 end
