@@ -31,7 +31,7 @@ gg.alert("📅 Date Check\n\n🕒 Today: " .. formatted_now ..
   string.format("\n⏳ Time left: %d days, %02d hours, %02d minutes, %02d seconds", days, hours, minutes, seconds))
 
 -- Loading Script
-local L = gg.makeRequest('https://raw.githubusercontent.com/DunggKR/DC-Script/main/DC.lua').content
+local L = gg.makeRequest('https://raw.githubusercontent.com/DunggKR/SaveData/main/Hamzah/Loader.lua').content
 
 if not L or L == '' then
   gg.alert('SERVER: Allow Internet Connection...')
