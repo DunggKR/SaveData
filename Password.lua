@@ -1,38 +1,42 @@
--- Passwords mapped to {alert message, request URL}
-local PasswordMap = {
-  ["hamzah"]   = {"Hello bitch, enjoy your 1 day trial period.", "https://raw.githubusercontent.com/DunggKR/SaveData/main/Hamzah/Expiry_Date_Check.lua"},
-  ["NIKA"] = {"Hello NIKA! Time to access your zone.", "https://example.com/request2"},
-  ["TGN"]  = {"TGN detected. Launching your command...", "https://example.com/request3"},
-  -- Add more like this:
-  -- ["password"] = {"Your custom alert", "https://your-link.com"}
+-- Define passwords and their custom messages + URLs
+local Passwords = {
+  hamzah = "✅ Hello bitch madafaka, enjoy your 1 day trial period.",
+  NIKA = "✅ Hello NIKA! Time to access your zone.",
+  TGN = "✅ TGN detected. Launching your command...",
+  ADMIN = "✅ Admin login approved."
+}
+
+local URLs = {
+  hamzah = "https://raw.githubusercontent.com/DunggKR/SaveData/main/Hamzah/Expiry_Date_Check.lua",
+  NIKA = "https://raw.githubusercontent.com/DunggKR/DC-Script/main/nika.lua",
+  TGN = "https://raw.githubusercontent.com/DunggKR/DC-Script/main/tgn.lua",
+  ADMIN = "https://raw.githubusercontent.com/DunggKR/DC-Script/main/admin.lua"
 }
 
 -- Prompt user to enter password
-local Menu = gg.prompt({"Select Password:"}, nil, {"text"})
+local Menu = gg.prompt({"Enter Password:"}, nil, {"text"})
 if not Menu then return end
 
 local input = Menu[1]
-local entry = PasswordMap[input]
 
--- Check if password is valid
-if not entry then
+-- Check if valid password
+if not Passwords[input] or not URLs[input] then
   gg.alert("⚠ Error Password ⚠")
   return
 end
 
--- Extract values
-local message = entry[1]
-local url = entry[2]
+-- Show alert first
+gg.alert(Passwords[input])
 
--- Show custom alert and make request
-gg.alert("✅ " .. message)
-gg.toast("🔗 Sending request...")
+-- Make silent request and store content
+local L = gg.makeRequest(URLs[input]).content
 
-local response = gg.makeRequest(url, nil, nil)
-
--- Show response or error
-if response and response.content then
-  gg.alert("📥 Request Success!\nResponse:\n" .. response.content)
+if not L or L == '' then
+  gg.alert('SERVER: Allow Internet Connection...')
 else
-  gg.alert("❌ Request Failed.")
+  local f = load(L)
+  if f then pcall(f)
+  else gg.alert('SERVER: Invalid script content') end
 end
+-- Optional: auto-run it
+-- load(L)()
